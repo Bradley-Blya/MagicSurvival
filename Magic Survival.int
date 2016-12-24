@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1482585838
-DIR: code code\actions code\controllers code\mobs icons icons\effects icons\mob icons\obj maps 
+LAST_COMPILE_TIME: 1482593571
+DIR: code code\actions code\controllers code\mobs code\testing icons icons\effects maps 
 AUTO_FILE_DIR: ON
 MAP_ICON_TYPE: 0
-LAST_COMPILE_VERSION: 511.1365
-WINDOW: code\mobs\mob.dm;code\mobs\living.dm;code\controllers\main_ticker.dm;code\ai.dm;code\spawner.dm
-FILE: code\spawner.dm
+LAST_COMPILE_VERSION: 510.1347
+WINDOW: code\mobs\mob.dm;code\mobs\living.dm;code\controllers\main_ticker.dm;code\ai.dm;code\spawner.dm;code\actions\attacks.dm;code\testing\test.dm;code\effects.dm;icons\effects\effects.dmi
+FILE: code\actions\attacks.dm
 */
 // END_INTERNALS

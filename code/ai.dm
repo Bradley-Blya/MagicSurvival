@@ -1,6 +1,7 @@
-	#define PLAYERS_TEAM = 1
-	#define MONSTER_TEAM = 2
-	#define MISC_TEAM = 3
+	#define IGNORE 0
+	#define PLAYER_TEAM 1
+	#define MONSTER_TEAM 2
+	#define MISC_TEAM 3
 
 	#define ATTACK 1
 	#define TRACKING 2
@@ -16,12 +17,38 @@
 		alies[0]
 		neutral[0]
 
-	var/team = 3
+	var/team
 
 	var/next_check
-	var/delay
+	var/delay = 1
 
-/datum/ai/proc/process(tick)
-	if(!Mob)
+	proc/process(tick)
+		if(!Mob)
+			return
+
+		if(check_hostiles())
+			decide_sighted()
+
+		Mob.Move(get_step(Mob, pick(NORTH, EAST, WEST, SOUTH)))
+
+
+	proc/check_hostiles() //returns 1 if there are hostiles in view
+		for(var/mob/living/M in view())
+			var/t = M.get_team()
+			if(t != team)
+				return 1
+
+	proc/decide_sighted() //ai dicides wether they attack, run away, or track
 		return
-	Mob.Move(get_step(Mob, pick(NORTH, EAST, WEST, SOUTH)))
+
+
+
+/mob/living/proc/get_team()
+	if(client)
+		return PLAYER_TEAM
+
+	if(ai)
+		return ai.team
+
+	return IGNORE
+

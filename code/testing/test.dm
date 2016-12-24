@@ -17,12 +17,11 @@
 
 /mob/verb/attack()
 	set instant = 1
-	var/time = 30*world.tick_lag
 	var/tt = world.time
 	var/ttt = time2text(world.timeofday,"mm:ss")
 	var/obj/action/attack/a = new (loc)
 	a.actor = src
-	a.perform(time)
+	a.perform()
 	ttt += " -- "
 	ttt += time2text(world.timeofday,"mm:ss")
 	world << "<font size=5 color=red>! == [world.time - tt]</font>  [ttt]"

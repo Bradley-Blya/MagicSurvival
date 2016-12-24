@@ -32,7 +32,15 @@
 		ai.process(ticks)
 		ai_active = 1
 
+/mob/living/proc/apply_dmg(amt, type)
+	show_hit(src)
 
+	decrease_health(amt)
+
+/mob/living/proc/decrease_health(amt)
+	health -= amt
+	icon -= rgb(amt/2,amt,amt)
+	time_to_move += amt
 
 
 

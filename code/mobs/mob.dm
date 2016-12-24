@@ -1,7 +1,7 @@
 /mob
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "happy"
-	var/time_to_move = 17
+	var/time_to_move = 20
 	var/next_move = 0
 
 /mob/Login()

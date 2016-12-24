@@ -1,11 +1,13 @@
 proc
-	show_hit(mob/m)
-		var/obj/o = new /obj(m.loc)
+	show_hit(atom/c)
+		var/obj/o = new /obj(c.loc)
 		o.layer = MOB_LAYER + 1
 		o.pixel_x = rand(-8, 8)
 		o.pixel_y = rand(-8, 8)
 		o.mouse_opacity = 0
-		o.icon_state = "attack"
+		o.animate_movement = 3
+		o.icon = 'icons/effects/effects.dmi'
+		o.icon_state = "damage"
 		o.dir = pick(NORTH, SOUTH, EAST, WEST)
 		animate(o, transform = matrix()*1.5, color = rgb(100,0,0), time = 3)
 		spawn(6)
